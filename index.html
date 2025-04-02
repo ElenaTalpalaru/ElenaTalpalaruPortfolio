@@ -12,25 +12,31 @@
       --light: #f8fafc;
       --gray: #64748b;
       --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --highlight: #ff6347; /* Tomato Red for highlighting */
     }
     
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: 'Inter', sans-serif;
       background: var(--light);
       color: var(--dark);
       line-height: 1.6;
-      padding: 2rem;
       margin: 0;
+      padding: 2rem;
     }
     
+    h1, h2 {
+      color: var(--dark);
+    }
+
     .about-section {
       background: white;
       padding: 2rem;
       border-radius: 16px;
       box-shadow: var(--shadow);
       margin-bottom: 2rem;
+      transition: transform 0.3s ease;
     }
-    
+
     .about-title {
       font-size: 2rem;
       font-weight: 700;
@@ -41,19 +47,76 @@
     .about-description {
       color: var(--gray);
       font-size: 1.1rem;
+      margin-bottom: 1.5rem;
     }
     
+    .about-description span {
+      display: block;
+      margin-top: 1rem;
+    }
+    
+    .about-button {
+      padding: 0.5rem 1rem;
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .about-button:hover {
+      background-color: var(--primary-light);
+    }
+
+    .tech-stack, .education-section {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background: white;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .tech-stack h3, .education-section h3 {
+      font-size: 1.75rem;
+      color: var(--dark);
+      margin-bottom: 1rem;
+    }
+    
+    .tech-stack ul, .education-section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .tech-stack li, .education-section li {
+      background-color: var(--primary-light);
+      color: var(--primary);
+      padding: 0.5rem;
+      border-radius: 15px;
+      margin: 0.5rem 0;
+      font-size: 1rem;
+      transition: transform 0.2s ease;
+    }
+
+    .tech-stack li:hover, .education-section li:hover {
+      transform: scale(1.05);
+      background-color: var(--primary);
+      color: white;
+    }
+
     .projects-container {
       max-width: 1200px;
       margin: 0 auto;
     }
-    
+
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
       gap: 2rem;
     }
-    
+
     .project-card {
       background: white;
       border-radius: 16px;
@@ -65,12 +128,12 @@
       display: flex;
       flex-direction: column;
     }
-    
+
     .project-card:hover {
       transform: translateY(-8px);
       box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     }
-    
+
     .project-image {
       height: 140px;
       background: linear-gradient(135deg, var(--primary-light), var(--primary));
@@ -80,18 +143,18 @@
       font-size: 4rem;
       transition: transform 0.5s ease;
     }
-    
+
     .project-card:hover .project-image {
       transform: scale(1.05);
     }
-    
+
     .project-content {
       padding: 1.5rem;
       display: flex;
       flex-direction: column;
       flex-grow: 1;
     }
-    
+
     .project-title {
       margin: 0 0 1rem 0;
       font-size: 1.5rem;
@@ -100,7 +163,7 @@
       position: relative;
       display: inline-block;
     }
-    
+
     .project-title::after {
       content: '';
       position: absolute;
@@ -111,24 +174,24 @@
       background: var(--primary);
       transition: width 0.3s ease;
     }
-    
+
     .project-card:hover .project-title::after {
       width: 100%;
     }
-    
+
     .project-description {
       margin-bottom: 1.5rem;
       color: var(--gray);
       flex-grow: 1;
     }
-    
+
     .project-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
       margin-bottom: 1.5rem;
     }
-    
+
     .tag {
       background: rgba(99, 102, 241, 0.1);
       color: var(--primary);
@@ -139,12 +202,12 @@
       letter-spacing: 0.5px;
       transition: all 0.2s ease;
     }
-    
+
     .project-card:hover .tag {
       background: rgba(99, 102, 241, 0.2);
       transform: scale(1.05);
     }
-    
+
     .project-link {
       display: inline-flex;
       align-items: center;
@@ -153,23 +216,23 @@
       text-decoration: none;
       transition: all 0.2s ease;
     }
-    
+
     .project-link:hover {
       color: var(--primary-light);
       transform: translateX(4px);
     }
-    
+
     .project-link::after {
       content: '→';
       display: inline-block;
       margin-left: 4px;
       transition: transform 0.2s ease;
     }
-    
+
     .project-link:hover::after {
       transform: translateX(4px);
     }
-    
+
     /* Responsive design */
     @media (max-width: 768px) {
       .projects-grid {
@@ -182,7 +245,43 @@
   <!-- About Me Section -->
   <section class="about-section">
     <h2 class="about-title">About Me</h2>
-    <p class="about-description">Hello! I'm <strong>Elena Talpalaru</strong>, a passionate <strong>QA Engineer & Test Automation Specialist</strong>. I specialize in creating robust test automation frameworks, ensuring high-quality software and flawless user experiences. I thrive on solving complex problems and streamlining testing processes to help teams deliver software efficiently and with confidence. My work spans across various industries, from e-commerce to API testing, and I am always eager to expand my knowledge and contribute to high-quality product development.</p>
+    <p class="about-description">
+      Hello! I'm <strong>Elena Talpalaru</strong>, a passionate <strong>QA Engineer & Test Automation Specialist</strong>. 
+      With over 4 years of experience in quality assurance, I strive to deliver high-quality products and services to clients and users. 
+      I specialize in C# and Selenium automation, REST API test automation, and always aim to improve testing processes and tools.
+      <span>
+        I'm always eager to learn new tools and collaborate with cross-functional teams to ensure the best outcomes.
+      </span>
+    </p>
+    <button class="about-button" onclick="document.querySelector('.about-description').classList.toggle('expanded')">Read More</button>
+  </section>
+
+  <!-- Tech Stack Section -->
+  <section class="tech-stack">
+    <h3>Tech Stack</h3>
+    <ul>
+      <li>C#</li>
+      <li>Selenium</li>
+      <li>Specflow</li>
+      <li>xUnit</li>
+      <li>Azure</li>
+      <li>Postman</li>
+      <li>REST</li>
+      <li>GraphQL</li>
+      <li>SQL</li>
+      <li>JavaScript</li>
+      <li>API Testing</li>
+      <li>GitLab</li>
+    </ul>
+  </section>
+
+  <!-- Education and Certification Section -->
+  <section class="education-section">
+    <h3>Education & Certifications</h3>
+    <ul>
+      <li>Bachelor in Social Sciences at Faculty of Philosophy and Social-Political Sciences Iasi, Romania (October 2004 - June 2008)</li>
+      <li>Certification: ISTQB® Certified Tester Foundation Level</li>
+    </ul>
   </section>
 
   <!-- Projects Section -->
@@ -201,7 +300,7 @@
           <a href="https://github.com/ElenaTalpalaru/SoapArtTestAutomation" class="project-link" target="_blank">View Project</a>
         </div>
       </div>
-      
+
       <div class="project-card">
         <div class="project-image">📱</div>
         <div class="project-content">
@@ -215,7 +314,7 @@
           <a href="https://github.com/ElenaTalpalaru/Message-API-Postman-Tests" class="project-link" target="_blank">View Project</a>
         </div>
       </div>
-      
+
       <div class="project-card">
         <div class="project-image">📊</div>
         <div class="project-content">
@@ -231,5 +330,17 @@
       </div>
     </div>
   </div>
+
+  <script>
+    document.querySelector('.about-button').addEventListener('click', function() {
+      const description = document.querySelector('.about-description');
+      description.classList.toggle('expanded');
+      if (description.classList.contains('expanded')) {
+        this.textContent = 'Read Less';
+      } else {
+        this.textContent = 'Read More';
+      }
+    });
+  </script>
 </body>
 </html>
