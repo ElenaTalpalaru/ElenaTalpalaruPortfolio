@@ -30,7 +30,6 @@
       background-color: var(--light);
       color: var(--dark);
       line-height: 1.6;
-      overflow-x: hidden;
     }
     
     .container {
@@ -39,59 +38,24 @@
       padding: 0 2rem;
     }
     
-    /* Animated gradient background */
     header {
-      background: linear-gradient(-45deg, #6366f1, #4f46e5, #8b5cf6, #a855f7);
-      background-size: 400% 400%;
-      animation: gradient 15s ease infinite;
+      background-color: var(--primary);
       color: white;
       padding: 4rem 0;
       position: relative;
       overflow: hidden;
     }
     
-    @keyframes gradient {
-      0% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-      100% {
-        background-position: 0% 50%;
-      }
-    }
-    
-    /* Floating particles */
-    .particles {
+    header::after {
+      content: '';
       position: absolute;
-      top: 0;
-      left: 0;
       width: 100%;
       height: 100%;
-      overflow: hidden;
+      top: 0;
+      left: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%237c3aed' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+      opacity: 0.3;
       z-index: 0;
-    }
-    
-    .particle {
-      position: absolute;
-      display: block;
-      background-color: rgba(255, 255, 255, 0.2);
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      animation: float 15s infinite linear;
-    }
-    
-    @keyframes float {
-      0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-1000px) rotate(720deg);
-        opacity: 0;
-      }
     }
     
     .header-content {
@@ -106,17 +70,9 @@
     .nav {
       position: sticky;
       top: 0;
-      background-color: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+      background-color: white;
       box-shadow: var(--shadow);
       z-index: 100;
-      transition: all 0.3s ease;
-    }
-    
-    .nav-scrolled {
-      background-color: rgba(255, 255, 255, 0.95);
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     }
     
     .nav-container {
@@ -130,24 +86,6 @@
       font-weight: 700;
       font-size: 1.5rem;
       color: var(--primary);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .logo::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background-color: var(--primary);
-      transform: translateX(-100%);
-      transition: transform 0.3s ease;
-    }
-    
-    .logo:hover::after {
-      transform: translateX(0);
     }
     
     .nav-links {
@@ -159,48 +97,17 @@
       text-decoration: none;
       color: var(--dark);
       font-weight: 500;
-      position: relative;
       transition: color 0.3s;
-    }
-    
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background-color: var(--primary);
-      transform: scaleX(0);
-      transform-origin: right;
-      transition: transform 0.3s ease;
     }
     
     .nav-links a:hover {
       color: var(--primary);
     }
     
-    .nav-links a:hover::after {
-      transform: scaleX(1);
-      transform-origin: left;
-    }
-    
     .profile-info {
       flex: 1;
       min-width: 300px;
       margin-right: 2rem;
-      animation: fadeInUp 1s ease-out;
-    }
-    
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
     }
     
     .profile-pic {
@@ -209,25 +116,6 @@
       border-radius: 50%;
       border: 5px solid rgba(255, 255, 255, 0.3);
       object-fit: cover;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-      animation: fadeInRight 1s ease-out;
-      transition: transform 0.5s ease, box-shadow 0.5s ease;
-    }
-    
-    .profile-pic:hover {
-      transform: scale(1.05) rotate(3deg);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-    }
-    
-    @keyframes fadeInRight {
-      from {
-        opacity: 0;
-        transform: translateX(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
     }
     
     h1 {
@@ -252,11 +140,6 @@
       height: 4px;
       background-color: var(--primary);
       border-radius: 2px;
-      transition: width 0.3s ease;
-    }
-    
-    h2:hover::after {
-      width: 100%;
     }
     
     .tagline {
@@ -276,47 +159,15 @@
       transition: all 0.3s;
       margin-top: 1rem;
       box-shadow: var(--shadow);
-      position: relative;
-      overflow: hidden;
-      z-index: 1;
-    }
-    
-    .cta-button::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 0%;
-      height: 100%;
-      background-color: var(--primary);
-      transition: all 0.3s;
-      z-index: -1;
     }
     
     .cta-button:hover {
-      color: white;
       transform: translateY(-3px);
       box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
     }
     
-    .cta-button:hover::before {
-      width: 100%;
-    }
-    
     section {
       padding: 5rem 0;
-      position: relative;
-    }
-    
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s ease;
-    }
-    
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
     }
     
     .skills-grid {
@@ -332,26 +183,17 @@
       border-radius: 0.5rem;
       box-shadow: var(--shadow);
       text-align: center;
-      transition: all 0.3s ease;
-      position: relative;
-      top: 0;
-      cursor: pointer;
+      transition: transform 0.3s;
     }
     
     .skill-card:hover {
-      transform: translateY(-10px) scale(1.03);
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      transform: translateY(-5px);
     }
     
     .skill-icon {
       font-size: 2.5rem;
       margin-bottom: 1rem;
       color: var(--primary);
-      transition: transform 0.3s ease;
-    }
-    
-    .skill-card:hover .skill-icon {
-      transform: scale(1.2);
     }
     
     .projects-grid {
@@ -366,40 +208,21 @@
       border-radius: 0.5rem;
       overflow: hidden;
       box-shadow: var(--shadow);
-      transition: all 0.5s ease;
-      position: relative;
-      top: 0;
+      transition: transform 0.3s;
     }
     
     .project-card:hover {
-      transform: translateY(-15px);
-      box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.2);
+      transform: translateY(-5px);
     }
     
     .project-image {
       height: 200px;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      background-color: var(--accent);
       display: flex;
       align-items: center;
       justify-content: center;
       color: white;
       font-size: 3rem;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .project-image::before {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: rgba(255, 255, 255, 0.1);
-      transform: translateX(-100%);
-      transition: transform 0.6s ease;
-    }
-    
-    .project-card:hover .project-image::before {
-      transform: translateX(100%);
     }
     
     .project-content {
@@ -410,11 +233,6 @@
       font-size: 1.25rem;
       font-weight: 600;
       margin-bottom: 0.5rem;
-      transition: color 0.3s ease;
-    }
-    
-    .project-card:hover .project-title {
-      color: var(--primary);
     }
     
     .project-tags {
@@ -431,11 +249,6 @@
       border-radius: 9999px;
       font-size: 0.75rem;
       font-weight: 500;
-      transition: all 0.3s ease;
-    }
-    
-    .project-card:hover .tag {
-      transform: scale(1.05);
     }
     
     .project-link {
@@ -444,25 +257,6 @@
       text-decoration: none;
       font-weight: 500;
       margin-top: 1rem;
-      position: relative;
-    }
-    
-    .project-link::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 100%;
-      height: 1px;
-      background-color: var(--primary);
-      transform: scaleX(0);
-      transform-origin: right;
-      transition: transform 0.3s ease;
-    }
-    
-    .project-link:hover::after {
-      transform: scaleX(1);
-      transform-origin: left;
     }
     
     .experience-timeline {
@@ -485,11 +279,6 @@
     .timeline-item {
       padding: 0 0 2rem 2rem;
       position: relative;
-      transition: transform 0.3s ease;
-    }
-    
-    .timeline-item:hover {
-      transform: translateX(10px);
     }
     
     .timeline-item::before {
@@ -501,12 +290,6 @@
       background-color: var(--primary);
       left: -8px;
       top: 5px;
-      transition: all 0.3s ease;
-    }
-    
-    .timeline-item:hover::before {
-      transform: scale(1.5);
-      box-shadow: 0 0 0 5px rgba(99, 102, 241, 0.2);
     }
     
     .timeline-date {
@@ -519,11 +302,6 @@
       font-size: 1.25rem;
       font-weight: 600;
       margin-bottom: 0.5rem;
-      transition: color 0.3s ease;
-    }
-    
-    .timeline-item:hover .timeline-title {
-      color: var(--primary);
     }
     
     .timeline-company {
@@ -536,19 +314,6 @@
       color: white;
       padding: 4rem 0;
       text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    footer::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-      opacity: 0.1;
     }
     
     .contact-links {
@@ -561,133 +326,16 @@
     .contact-links a {
       color: white;
       text-decoration: none;
-      padding: 0.5rem 1rem;
-      border-radius: 0.5rem;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-      z-index: 1;
-    }
-    
-    .contact-links a::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(255, 255, 255, 0.1);
-      transform: scaleX(0);
-      transform-origin: right;
-      transition: transform 0.3s ease;
-      z-index: -1;
+      transition: color 0.3s;
     }
     
     .contact-links a:hover {
-      color: white;
-      transform: translateY(-3px);
-    }
-    
-    .contact-links a:hover::before {
-      transform: scaleX(1);
-      transform-origin: left;
+      color: var(--accent);
     }
     
     .copyright {
       opacity: 0.7;
       font-size: 0.875rem;
-    }
-    
-    /* Wavy background */
-    .wave-container {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      overflow: hidden;
-      line-height: 0;
-      transform: rotate(180deg);
-      z-index: -1;
-    }
-    
-    .wave-container svg {
-      position: relative;
-      display: block;
-      width: calc(100% + 1.3px);
-      height: 94px;
-    }
-    
-    .wave-container .shape-fill {
-      fill: var(--primary);
-      opacity: 0.1;
-    }
-    
-    /* Dark/Light Mode Toggle */
-    .theme-toggle {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background: var(--primary);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-      z-index: 999;
-      transition: all 0.3s ease;
-    }
-    
-    .theme-toggle:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
-    }
-    
-    .theme-toggle .icon {
-      color: white;
-      font-size: 1.5rem;
-      transition: transform 0.5s ease;
-    }
-    
-    .theme-toggle:hover .icon {
-      transform: rotate(360deg);
-    }
-    
-    /* Scroll to top button */
-    .scroll-top {
-      position: fixed;
-      bottom: 80px;
-      right: 20px;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background: var(--accent);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-      z-index: 999;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s ease;
-    }
-    
-    .scroll-top.visible {
-      opacity: 1;
-      visibility: visible;
-    }
-    
-    .scroll-top:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
-    }
-    
-    .scroll-top .icon {
-      color: white;
-      font-size: 1.5rem;
     }
     
     @media (max-width: 768px) {
@@ -723,105 +371,15 @@
       .experience-timeline {
         padding-left: 0;
       }
-      
-      .theme-toggle, .scroll-top {
-        width: 40px;
-        height: 40px;
-      }
-    }
-    
-    /* Dark mode styles */
-    .dark-mode {
-      background-color: #121212;
-      color: #e5e7eb;
-    }
-    
-    .dark-mode .nav {
-      background-color: rgba(18, 18, 18, 0.9);
-    }
-    
-    .dark-mode .nav-scrolled {
-      background-color: rgba(18, 18, 18, 0.95);
-    }
-    
-    .dark-mode .nav-links a {
-      color: #e5e7eb;
-    }
-    
-    .dark-mode .logo {
-      color: var(--accent);
-    }
-    
-    .dark-mode .skill-card, 
-    .dark-mode .project-card {
-      background-color: #1f2937;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    }
-    
-    .dark-mode .skill-card:hover, 
-    .dark-mode .project-card:hover {
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
-    }
-    
-    .dark-mode .cta-button {
-      background-color: #1f2937;
-      color: var(--accent);
-    }
-    
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 100% }
-    }
-    
-    @keyframes blink-caret {
-      from, to { border-color: transparent }
-      50% { border-color: var(--primary) }
-    }
-    
-    .typewriter h1 {
-      overflow: hidden;
-      border-right: .15em solid var(--primary);
-      white-space: nowrap;
-      margin: 0 auto;
-      animation: 
-        typing 3.5s steps(40, end),
-        blink-caret .75s step-end infinite;
-    }
-    
-    /* Progress bar animation */
-    .progress-container {
-      width: 100%;
-      height: 4px;
-      background: rgba(255, 255, 255, 0.1);
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 1000;
-    }
-    
-    .progress-bar {
-      height: 4px;
-      background: var(--primary);
-      width: 0%;
     }
   </style>
 </head>
 <body>
-  <!-- Scroll progress indicator -->
-  <div class="progress-container">
-    <div class="progress-bar" id="progressBar"></div>
-  </div>
-  
   <header>
-    <!-- Animated particles -->
-    <div class="particles" id="particles"></div>
-    
     <div class="container">
       <div class="header-content">
         <div class="profile-info">
-          <div class="typewriter">
-            <h1>Elena Talpalaru</h1>
-          </div>
+          <h1>Elena Talpalaru</h1>
           <p class="tagline">QA Engineer & Test Automation Specialist</p>
           <p>With a passion for quality and efficient test automation, I create robust testing solutions to ensure flawless software delivery.</p>
           <a href="#contact" class="cta-button">Get in Touch</a>
@@ -831,7 +389,7 @@
     </div>
   </header>
   
-  <nav class="nav" id="navbar">
+  <nav class="nav">
     <div class="nav-container container">
       <div class="logo">ET</div>
       <div class="nav-links">
@@ -845,7 +403,7 @@
   </nav>
   
   <section id="about">
-    <div class="container reveal">
+    <div class="container">
       <h2>About Me</h2>
       <p>With over 3 years of experience in quality assurance, I am a passionate and skilled QA Engineer who strives to deliver high-quality products and services to clients and users. I have a strong background in C# and Selenium automation, as well as REST API test automation, which enables me to create and execute effective test cases and scenarios.</p>
       <p>I am always eager to learn new tools and technologies, and to collaborate with cross-functional teams to ensure the best outcomes. I believe that quality is everyone's responsibility and work to foster a culture of quality throughout the development process.</p>
@@ -853,13 +411,7 @@
   </section>
   
   <section id="skills" style="background-color: #f1f5f9;">
-    <div class="wave-container">
-      <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
-      </svg>
-    </div>
-    
-    <div class="container reveal">
+    <div class="container">
       <h2>Skills & Expertise</h2>
       <div class="skills-grid">
         <div class="skill-card">
@@ -907,7 +459,7 @@
   </section>
   
   <section id="projects">
-    <div class="container reveal">
+    <div class="container">
       <h2>Projects Portfolio</h2>
       <p>Here are some of my recent projects showcasing my test automation skills and quality assurance expertise.</p>
       <div class="projects-grid">
@@ -937,4 +489,107 @@
             <a href="#" class="project-link">View Project →</a>
           </div>
         </div>
-        <div class
+        <div class="project-card">
+          <div class="project-image">📊</div>
+          <div class="project-content">
+            <h3 class="project-title">GraphQL Test Framework</h3>
+            <p>Custom GraphQL testing framework with schema validation and performance testing capabilities.</p>
+            <div class="project-tags">
+              <span class="tag">GraphQL</span>
+              <span class="tag">C#</span>
+              <span class="tag">Performance</span>
+            </div>
+            <a href="#" class="project-link">View Project →</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-image">🔄</div>
+          <div class="project-content">
+            <h3 class="project-title">CI/CD Pipeline Integration</h3>
+            <p>Integration of automated tests into CI/CD pipeline with detailed reporting and notifications.</p>
+            <div class="project-tags">
+              <span class="tag">GitLab CI</span>
+              <span class="tag">Azure DevOps</span>
+              <span class="tag">Reporting</span>
+            </div>
+            <a href="#" class="project-link">View Project →</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-image">🔍</div>
+          <div class="project-content">
+            <h3 class="project-title">Test Data Generator</h3>
+            <p>Custom tool for generating realistic test data for various testing scenarios and environments.</p>
+            <div class="project-tags">
+              <span class="tag">C#</span>
+              <span class="tag">SQL</span>
+              <span class="tag">Data Generation</span>
+            </div>
+            <a href="#" class="project-link">View Project →</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-image">📈</div>
+          <div class="project-content">
+            <h3 class="project-title">Test Metrics Dashboard</h3>
+            <p>Interactive dashboard for visualizing test coverage, execution metrics, and quality trends.</p>
+            <div class="project-tags">
+              <span class="tag">JavaScript</span>
+              <span class="tag">Data Visualization</span>
+              <span class="tag">Reporting</span>
+            </div>
+            <a href="#" class="project-link">View Project →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section id="experience" style="background-color: #f1f5f9;">
+    <div class="container">
+      <h2>Work Experience</h2>
+      <div class="experience-timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">May 2021 - September 2023</div>
+          <div class="timeline-title">QA Engineer</div>
+          <div class="timeline-company">Cognizant Softvision, Bucharest</div>
+          <p>Manual and automation QA for both front-end and back-end systems. Developed REST API and GraphQL automated tests using C# and UI tests using Selenium with C#. Introduced GraphQL testing into the automated test suite and created a Postman collection to streamline regression testing. Mentored junior team members and delivered weekly automation status reports.</p>
+          <p><strong>Tech Stack:</strong> C#, Selenium, SpecFlow, xUnit, Azure, Postman, REST, GraphQL, SQL, JavaScript, API Testing</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">July 2020 - May 2021</div>
+          <div class="timeline-title">QA Engineer</div>
+          <div class="timeline-company">Cornerstone, Bucharest</div>
+          <p>Served as the sole QA resource across multiple projects with various services. Initiated automation testing, developing Postman/Newman API tests for pipeline integration and front-end automation using Selenium with C# and Cypress.</p>
+          <p><strong>Tech Stack:</strong> Postman, REST/Swagger, Cypress, GitLab, JavaScript, C#, Selenium</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section id="certifications">
+    <div class="container">
+      <h2>Certifications</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-icon">🏆</div>
+          <h3>ISTQB®</h3>
+          <p>Certified Tester Foundation Level</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <footer id="contact">
+    <div class="container">
+      <h2 style="color: white; margin-bottom: 2rem;">Get in Touch</h2>
+      <div class="contact-links">
+        <a href="mailto:contact@elenatalpalaru.com">Email</a>
+        <a href="https://linkedin.com/in/elenatalpalaru" target="_blank">LinkedIn</a>
+        <a href="https://github.com/elenatalpalaru" target="_blank">GitHub</a>
+      </div>
+      <p class="copyright">© 2024 Elena Talpalaru. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
