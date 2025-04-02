@@ -130,6 +130,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
+      margin-bottom: 1.5rem;
     }
     
     .tag {
@@ -138,6 +139,34 @@
       padding: 0.35rem 0.75rem;
       border-radius: 20px;
       font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: all 0.2s ease;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    
+    .project-link:hover {
+      color: var(--primary-light);
+      transform: translateX(4px);
+    }
+    
+    .project-link::after {
+      content: '→';
+      display: inline-block;
+      margin-left: 4px;
+      transition: transform 0.2s ease;
+    }
+    
+    .project-link:hover::after {
+      transform: translateX(4px);
     }
   </style>
 </head>
