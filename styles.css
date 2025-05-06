@@ -51,7 +51,20 @@ body {
 
 #job {
   margin-top: 0;
+  margin-bottom: 0.5rem;
   color: var(--gray);
+}
+
+/* Certification Styling */
+.certification {
+  display: inline-block;
+  background: rgba(99, 102, 241, 0.1);
+  color: var(--primary);
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-top: 0.25rem;
 }
 
 #pic {
